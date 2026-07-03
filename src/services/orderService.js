@@ -1,5 +1,6 @@
 import api from './api';
 
+export const placeOrder = (deliveryAddress) =>
     api.post('/api/orders', { deliveryAddress });
 
 export const getUserOrders = (userId) =>
