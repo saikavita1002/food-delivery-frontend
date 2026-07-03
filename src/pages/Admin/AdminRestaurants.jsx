@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { getRestaurants, createRestaurant, deleteRestaurant } from '../../services/restaurantService';
 
-const IMAGE_BASE = import.meta.env.VITE_IMAGE_URL || 'http://localhost:5000/uploads';
+const IMAGE_BASE = import.meta.env.VITE_IMAGE_URL || 'https://food-delivery-ou3o.onrender.com/uploads';
 
 const AdminRestaurants = ({ onSelectRestaurant }) => {
   const { user } = useAuth();

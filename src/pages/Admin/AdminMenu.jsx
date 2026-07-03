@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getFoods, addFood, deleteFood, updateFood } from '../../services/foodService';
 
-const IMAGE_BASE = import.meta.env.VITE_IMAGE_URL || 'http://localhost:5000/uploads';
+const IMAGE_BASE = import.meta.env.VITE_IMAGE_URL || 'https://food-delivery-ou3o.onrender.com/uploads';
 
 const AdminMenu = ({ restaurant, onBack }) => {
   const [foods, setFoods] = useState([]);

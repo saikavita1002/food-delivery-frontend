@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { getRestaurants } from '../services/restaurantService';
 import { searchFoods } from '../services/foodService';
 
-const IMAGE_BASE = import.meta.env.VITE_IMAGE_URL || 'http://localhost:5000/uploads';
+const IMAGE_BASE = import.meta.env.VITE_IMAGE_URL || 'https://food-delivery-ou3o.onrender.com/uploads';
 
 const Home = () => {
   const [restaurants, setRestaurants] = useState([]);

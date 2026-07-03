@@ -4,7 +4,7 @@ import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import { placeOrder } from '../services/orderService';
 
-const IMAGE_BASE = import.meta.env.VITE_IMAGE_URL || 'http://localhost:5000/uploads';
+const IMAGE_BASE = import.meta.env.VITE_IMAGE_URL || 'https://food-delivery-ou3o.onrender.com/uploads';
 
 const Cart = () => {
   const { cart, updateItem, removeItem, refreshCart } = useCart();
