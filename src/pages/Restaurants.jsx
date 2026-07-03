@@ -4,7 +4,7 @@ import { getRestaurantById } from '../services/restaurantService';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 
-const IMAGE_BASE = import.meta.env.VITE_IMAGE_URL || 'http://localhost:5000/uploads';
+const IMAGE_BASE = (import.meta.env.VITE_IMAGE_URL || 'http://localhost:5000/uploads').replace(/\/$/, '');
 
 const Restaurants = () => {
   const { id } = useParams();
@@ -39,8 +39,14 @@ const Restaurants = () => {
   return (
     <div className="page">
       <div className="restaurant-header">
-      <img
-  src={restaurant.image ? `${IMAGE_BASE}/${restaurant.image}`: 'https://via.placeholder.com/400x250?text=Restaurant'}alt={restaurant.name}/>
+        <img
+          src={
+            restaurant.image
+              ? `${IMAGE_BASE}/${restaurant.image}`
+              : 'https://via.placeholder.com/400x250?text=Restaurant'
+          }
+          alt={restaurant.name}
+        />
         <div>
           <h2>{restaurant.name}</h2>
           <p className="muted">{restaurant.address}</p>
@@ -49,6 +55,7 @@ const Restaurants = () => {
       </div>
 
       <h3>Menu</h3>
+
       {restaurant.menu.length === 0 ? (
         <p>No menu items yet.</p>
       ) : (
@@ -57,13 +64,19 @@ const Restaurants = () => {
             <div className="card" key={food._id}>
               <Link to={`/food/${food._id}`}>
                 <img
-                  src={food.image ? `${IMAGE_BASE}/${food.image}` : 'https://via.placeholder.com/200x140?text=Food'}
+                  src={
+                    food.image
+                      ? `${IMAGE_BASE}/${food.image}`
+                      : 'https://via.placeholder.com/200x140?text=Food'
+                  }
                   alt={food.foodName}
                 />
                 <h4>{food.foodName}</h4>
               </Link>
+
               <p className="muted">{food.category}</p>
               <p>₹{food.price}</p>
+
               <button onClick={() => handleAdd(food._id)}>
                 {addedId === food._id ? 'Added ✓' : 'Add to Cart'}
               </button>
